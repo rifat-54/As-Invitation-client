@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -8,6 +7,8 @@ import {
     ArrowUpRight,
     ShieldCheck,
     Sparkles,
+    Link2,
+    Settings2,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -15,7 +16,6 @@ import { Button } from "@/components/ui/button";
 export default function HomeDashboard() {
     return (
         <main className="min-h-svh bg-background px-5 py-12 md:px-10">
-
             <div className="mx-auto max-w-5xl space-y-10">
 
                 {/* Header */}
@@ -46,13 +46,13 @@ export default function HomeDashboard() {
                     </h2>
 
                     <p className="max-w-xl text-muted-foreground">
-                        Generate customer invitation links and manage
-                        existing customer tokens from one place.
+                        Generate customer invitation links, manage tokens,
+                        and control your Canva invitation collection.
                     </p>
                 </section>
 
                 {/* Navigation Cards */}
-                <section className="grid gap-5 md:grid-cols-2">
+                <section className="grid gap-5 sm:grid-cols-2">
 
                     {/* Generate Token */}
                     <div className="group rounded-2xl border p-6 transition-all hover:border-primary/50 hover:shadow-lg">
@@ -77,7 +77,7 @@ export default function HomeDashboard() {
                         </Button>
                     </div>
 
-                    {/* Manage Tokens */}
+                    {/* Manage Customers */}
                     <div className="group rounded-2xl border p-6 transition-all hover:border-primary/50 hover:shadow-lg">
                         <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/10 text-green-600">
                             <Users className="h-6 w-6" />
@@ -94,7 +94,53 @@ export default function HomeDashboard() {
 
                         <Button asChild variant="outline" className="mt-6 w-full">
                             <Link href="/manage-customer">
-                                View All Tokens
+                                View Customers
+                                <ArrowUpRight className="ml-2 h-4 w-4" />
+                            </Link>
+                        </Button>
+                    </div>
+
+                    {/* Manage Tokens */}
+                    <div className="group rounded-2xl border p-6 transition-all hover:border-primary/50 hover:shadow-lg">
+                        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/10 text-purple-600">
+                            <Settings2 className="h-6 w-6" />
+                        </div>
+
+                        <h3 className="text-xl font-semibold">
+                            Manage Tokens
+                        </h3>
+
+                        <p className="mt-2 min-h-12 text-sm leading-6 text-muted-foreground">
+                            View token details, check usage,
+                            and manage token validity.
+                        </p>
+
+                        <Button asChild variant="outline" className="mt-6 w-full">
+                            <Link href="/view-token">
+                                Manage Tokens
+                                <ArrowUpRight className="ml-2 h-4 w-4" />
+                            </Link>
+                        </Button>
+                    </div>
+
+                    {/* Add Link */}
+                    <div className="group rounded-2xl border p-6 transition-all hover:border-primary/50 hover:shadow-lg">
+                        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-600">
+                            <Link2 className="h-6 w-6" />
+                        </div>
+
+                        <h3 className="text-xl font-semibold">
+                            Add Invitation Link
+                        </h3>
+
+                        <p className="mt-2 min-h-12 text-sm leading-6 text-muted-foreground">
+                            Add new Canva invitation links
+                            to your collection.
+                        </p>
+
+                        <Button asChild variant="outline" className="mt-6 w-full">
+                            <Link href="/add-link">
+                                Add New Link
                                 <ArrowUpRight className="ml-2 h-4 w-4" />
                             </Link>
                         </Button>

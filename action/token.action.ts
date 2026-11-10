@@ -64,3 +64,30 @@ export const getTokenInfo = async (value: string) => {
 
     return await res.json();
 };
+
+export const addLink = async (link: string) => {
+  try {
+    const res = await fetch(
+      `${process.env.BACKEND_URL}/api/v1/invite/create`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ link:link }),
+      }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.message || "Failed to add link");
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Add Link Error:", error);
+
+    throw error;
+  }
+};
